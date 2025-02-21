@@ -11,21 +11,9 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import TypingText from "@/components/TypingText";
 
 const HomePage = () => {
-  const [text, setText] = useState("");
-  const fullText = "Code, Commit, Conquer";
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setText(fullText.slice(0, i + 1));
-      i++;
-      if (i === fullText.length) clearInterval(interval);
-    }, 50);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <Box
@@ -41,14 +29,8 @@ const HomePage = () => {
         padding: 4,
       }}
     >
-      <Typography
-        variant="h4"
-        component="h1"
-        sx={{ whiteSpace: "pre", textAlign: "center", minHeight: "80px" }}
-      >
-        {text}
-        <span className="blinking-cursor">|</span>
-      </Typography>
+      <TypingText text="> Code Commit Conquer" variant="h3" />
+
       <Typography variant="h6" component="h2" sx={{ textAlign: "center" }}>
         Your guide to mastering Git.
       </Typography>
@@ -67,7 +49,7 @@ const HomePage = () => {
                     border: "1px solid #00ff00",
                   }}
                 >
-                  <CardActionArea>
+                  <CardActionArea >
                     <CardContent>
                       <Typography variant="h6" align="center">
                         {title}
@@ -80,27 +62,16 @@ const HomePage = () => {
           ))}
         </Grid>
       </Container>
-
-      <style jsx>{`
-        @keyframes blink {
-          50% {
-            opacity: 0;
-          }
-        }
-        .blinking-cursor {
-          animation: blink 1s infinite;
-        }
-      `}</style>
     </Box>
   );
 };
 
 const sections = [
-  { title: "Git Basics", link: "/guides" },
-  { title: "Branching & Merging", link: "/commands" },
-  { title: "Commit Message Guide", link: "/guides" },
-  { title: "Professional PRs", link: "/guides" },
-  { title: "GitHub Workflow", link: "/guides" },
+  { title: "Git Basics", link: "/basics" },
+  { title: "Branching & Merging", link: "/branching" },
+  { title: "Commit Message Guide", link: "/commits" },
+  { title: "Professional PRs", link: "/pull-requests" },
+  { title: "GitHub Workflow", link: "/workflows" },
   { title: "Interactive Learning", link: "/interact" },
 ];
 
