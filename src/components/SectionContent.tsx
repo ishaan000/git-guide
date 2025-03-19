@@ -12,12 +12,12 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import ExpandableSection from "./ExpandableSection";
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 
 interface SectionContentProps {
   section: {
     title: string;
-    content: string;
+    content: ReactNode;
     code?: string;
     additionalContent?: string;
   };
@@ -54,12 +54,23 @@ export default function SectionContent({
     setTimeout(() => setShowConfetti(false), 2000);
   };
 
-  // Split additionalContent into concepts and tips, removing the headers
-  const [conceptsRaw, tipsRaw] = section.additionalContent?.split(
-    "💡 Pro Tips:"
-  ) || ["", ""];
-  const concepts = conceptsRaw.replace("📚 Key Concepts:", "").trim();
-  const tips = tipsRaw.trim();
+  // Split additionalContent into sections
+  const sections = section.additionalContent?.split(/\n(?=🎯|💡|📚)/) || [];
+  const learningGoals =
+    sections
+      .find((s) => s.startsWith("🎯"))
+      ?.replace("🎯 Learning Goals:", "")
+      .trim() || "";
+  const interactiveExercise =
+    sections
+      .find((s) => s.startsWith("💡"))
+      ?.replace("💡 Interactive Exercise:", "")
+      .trim() || "";
+  const keyConcepts =
+    sections
+      .find((s) => s.startsWith("📚"))
+      ?.replace("📚", "")
+      .trim() || "";
 
   return (
     <Box
@@ -131,7 +142,41 @@ export default function SectionContent({
       {section.additionalContent && (
         <Box sx={{ mb: 3 }}>
           <ExpandableSection
-            title="Concepts"
+            title="Learning Goals"
+            variant="goals"
+            content={
+              <Typography
+                variant="body2"
+                component="pre"
+                sx={{
+                  whiteSpace: "pre-wrap",
+                  fontFamily: "monospace",
+                  mb: 0,
+                }}
+              >
+                {learningGoals}
+              </Typography>
+            }
+          />
+          <ExpandableSection
+            title="Interactive Exercise"
+            variant="exercise"
+            content={
+              <Typography
+                variant="body2"
+                component="pre"
+                sx={{
+                  whiteSpace: "pre-wrap",
+                  fontFamily: "monospace",
+                  mb: 0,
+                }}
+              >
+                {interactiveExercise}
+              </Typography>
+            }
+          />
+          <ExpandableSection
+            title="Key Concepts"
             variant="concepts"
             content={
               <Typography
@@ -143,24 +188,7 @@ export default function SectionContent({
                   mb: 0,
                 }}
               >
-                {concepts}
-              </Typography>
-            }
-          />
-          <ExpandableSection
-            title="Tips"
-            variant="tips"
-            content={
-              <Typography
-                variant="body2"
-                component="pre"
-                sx={{
-                  whiteSpace: "pre-wrap",
-                  fontFamily: "monospace",
-                  mb: 0,
-                }}
-              >
-                {tips}
+                {keyConcepts}
               </Typography>
             }
           />

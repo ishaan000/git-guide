@@ -13,10 +13,17 @@ import CheckIcon from "@mui/icons-material/Check";
 
 interface CompletionSummaryProps {
   sections: Array<{ title: string }>;
+  guideName: string;
+  nextGuide: {
+    name: string;
+    path: string;
+  };
 }
 
 export default function CompletionSummary({
   sections,
+  guideName,
+  nextGuide,
 }: CompletionSummaryProps) {
   return (
     <Box sx={{ textAlign: "center", py: 4 }}>
@@ -25,7 +32,7 @@ export default function CompletionSummary({
         Congratulations!
       </Typography>
       <Typography variant="h6" sx={{ mb: 4, opacity: 0.8 }}>
-        You&apos;ve completed the Git Basics guide!
+        You&apos;ve mastered Git {guideName}!
       </Typography>
 
       <Paper sx={{ p: 3, mb: 4, backgroundColor: "rgba(0, 255, 0, 0.05)" }}>
@@ -46,7 +53,7 @@ export default function CompletionSummary({
 
       <Button
         variant="outlined"
-        href="/branching"
+        href={nextGuide.path}
         sx={{
           color: "limegreen",
           borderColor: "limegreen",
@@ -56,7 +63,7 @@ export default function CompletionSummary({
           },
         }}
       >
-        Continue to Git Branching and Merging →
+        Continue to {nextGuide.name} →
       </Button>
     </Box>
   );

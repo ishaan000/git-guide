@@ -89,7 +89,14 @@ export default function Basics() {
             </Box>
           </>
         ) : (
-          <CompletionSummary sections={sections} />
+          <CompletionSummary
+            sections={sections}
+            guideName="Basics"
+            nextGuide={{
+              name: "Branching and Merging",
+              path: "/branching",
+            }}
+          />
         )}
       </Paper>
     </>

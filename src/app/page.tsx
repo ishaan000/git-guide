@@ -14,7 +14,6 @@ import Link from "next/link";
 import TypingText from "@/components/TypingText";
 
 const HomePage = () => {
-
   return (
     <Box
       sx={{
@@ -49,7 +48,7 @@ const HomePage = () => {
                     border: "1px solid #00ff00",
                   }}
                 >
-                  <CardActionArea >
+                  <CardActionArea>
                     <CardContent>
                       <Typography variant="h6" align="center">
                         {title}
@@ -70,7 +69,7 @@ const sections = [
   { title: "Git Basics", link: "/basics" },
   { title: "Branching & Merging", link: "/branching" },
   { title: "Commit Message Guide", link: "/commits" },
-  { title: "Professional PRs", link: "/pull-requests" },
+  { title: "Professional PRs", link: "/prs" },
   { title: "GitHub Workflow", link: "/workflows" },
   { title: "Interactive Learning", link: "/interact" },
 ];

@@ -5,10 +5,10 @@ import CompletionSummary from "@/components/CompletionSummary";
 import SectionContent from "@/components/SectionContent";
 import ProgressBar from "@/components/ProgressBar";
 import StepNavigation from "@/components/StepNavigation";
-import { sections } from "@/data/gitWorkflows";
+import { sections } from "@/data/gitPRs";
 import { useState } from "react";
 
-export default function Workflows() {
+export default function PRs() {
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -44,8 +44,7 @@ export default function Workflows() {
   return (
     <>
       <Typography variant="body1" align="center" sx={{ opacity: 0.8, mb: 4 }}>
-        Master GitHub Actions and CI/CD pipelines for automated development
-        workflows
+        Master the art of professional pull requests and code reviews
       </Typography>
 
       <Paper
@@ -92,10 +91,10 @@ export default function Workflows() {
         ) : (
           <CompletionSummary
             sections={sections}
-            guideName="GitHub Workflows"
+            guideName="Professional PRs and Reviews"
             nextGuide={{
-              name: "Interactive Learning",
-              path: "/interact",
+              name: "Advanced Git",
+              path: "/advanced",
             }}
           />
         )}

@@ -4,12 +4,13 @@ import { useState } from "react";
 import { Box, IconButton, Typography, Collapse } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
-import LightbulbIcon from "@mui/icons-material/Lightbulb";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 
 interface ExpandableSectionProps {
   title: string;
   content: React.ReactNode;
-  variant: "concepts" | "tips";
+  variant: "goals" | "exercise" | "concepts";
   defaultExpanded?: boolean;
 }
 
@@ -23,10 +24,12 @@ export default function ExpandableSection({
 
   const getIcon = () => {
     switch (variant) {
+      case "goals":
+        return <EmojiEventsIcon fontSize="small" />;
+      case "exercise":
+        return <FitnessCenterIcon fontSize="small" />;
       case "concepts":
         return <MenuBookIcon fontSize="small" />;
-      case "tips":
-        return <LightbulbIcon fontSize="small" />;
       default:
         return null;
     }
