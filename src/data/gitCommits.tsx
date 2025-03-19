@@ -14,13 +14,13 @@ export const sections: Section[] = [
     content: (
       <>
         <Typography variant="body1" paragraph>
-          Imagine you're working on a project with a team. You come across a
-          commit that says "fix bug" or "update code". How helpful is that? Not
-          very! Good commit messages are like a time machine - they help you and
-          your team understand what changed and why.
+          Imagine you&apos;re working on a project with a team. You come across
+          a commit that says &quot;fix bug&quot; or &quot;update code&quot;. How
+          helpful is that? Not very! Good commit messages are like a time
+          machine - they help you and your team understand what changed and why.
         </Typography>
         <Typography variant="body1" paragraph>
-          In this guide, you'll learn how to write commit messages that:
+          In this guide, you&apos;ll learn how to write commit messages that:
         </Typography>
         <ul>
           <li>Make your code history clear and searchable</li>
@@ -43,7 +43,7 @@ Think about your last commit message. Write it down and analyze:
 
 📚 Key Concepts:
 • Commit messages are documentation
-• They serve as a project's history
+• They serve as a project&apos;s history
 • They help with debugging and maintenance
 • They reflect professional standards`,
   },
@@ -53,7 +53,7 @@ Think about your last commit message. Write it down and analyze:
       <>
         <Typography variant="body1" paragraph>
           A great commit message has a clear structure. Think of it like a good
-          email - it has a subject line and a body. Let's break it down:
+          email - it has a subject line and a body. Let&apos;s break it down:
         </Typography>
         <Typography variant="body1" paragraph>
           <strong>Subject Line (First Line):</strong>
@@ -61,8 +61,11 @@ Think about your last commit message. Write it down and analyze:
         <ul>
           <li>Keep it under 50 characters</li>
           <li>Start with a verb (Add, Fix, Update, etc.)</li>
-          <li>Don't end with a period</li>
-          <li>Use imperative mood ("Add feature" not "Added feature")</li>
+          <li>Don&apos;t end with a period</li>
+          <li>
+            Use imperative mood (&quot;Add feature&quot; not &quot;Added
+            feature&quot;)
+          </li>
         </ul>
         <Typography variant="body1" paragraph>
           <strong>Body:</strong>
@@ -95,7 +98,7 @@ Closes #123`,
 
 💡 Interactive Exercise:
 Write a commit message for this scenario:
-You just fixed a bug where users couldn't log in on mobile devices.
+You just fixed a bug where users couldn&apos;t log in on mobile devices.
 The issue was caused by incorrect viewport handling in the login form.
 
 📚 Key Concepts:
@@ -109,7 +112,7 @@ The issue was caused by incorrect viewport handling in the login form.
     content: (
       <>
         <Typography variant="body1" paragraph>
-          Let's look at some common patterns that make commit messages more
+          Let&apos;s look at some common patterns that make commit messages more
           effective and easier to work with:
         </Typography>
         <Typography variant="body1" paragraph>
@@ -166,8 +169,9 @@ Categorize these commits using type prefixes:
     content: (
       <>
         <Typography variant="body1" paragraph>
-          Now that you've mastered the basics, let's look at some advanced
-          techniques that can make your commit messages even more powerful:
+          Now that you&apos;ve mastered the basics, let&apos;s look at some
+          advanced techniques that can make your commit messages even more
+          powerful:
         </Typography>
         <Typography variant="body1" paragraph>
           <strong>1. Multiple Paragraphs:</strong>
@@ -189,7 +193,7 @@ Categorize these commits using type prefixes:
           <strong>3. Breaking Changes:</strong>
         </Typography>
         <ul>
-          <li>Start with "BREAKING CHANGE:"</li>
+          <li>Start with &quot;BREAKING CHANGE:&quot;</li>
           <li>Explain what changed and how to migrate</li>
           <li>Include in both subject and body</li>
         </ul>
@@ -199,7 +203,7 @@ Categorize these commits using type prefixes:
 
 BREAKING CHANGE: API endpoints now use GraphQL instead of REST
 
-This change improves our API's flexibility and reduces over-fetching.
+This change improves our API&apos;s flexibility and reduces over-fetching.
 The migration includes:
 
 - Replace REST endpoints with GraphQL schema
@@ -221,7 +225,7 @@ Related to #102`,
 
 💡 Interactive Exercise:
 Write a commit message for this scenario:
-You're removing an old feature that's no longer needed.
+You&apos;re removing an old feature that&apos;s no longer needed.
 This will require users to update their code.
 Include:
 1. Breaking change notice
@@ -239,9 +243,9 @@ Include:
     content: (
       <>
         <Typography variant="body1" paragraph>
-          Now it's your turn to practice! Below are some real-world scenarios.
-          Write commit messages for each one, following all the best practices
-          we've covered.
+          Now it&apos;s your turn to practice! Below are some real-world
+          scenarios. Write commit messages for each one, following all the best
+          practices we&apos;ve covered.
         </Typography>
         <Typography variant="body1" paragraph>
           <strong>Scenario 1:</strong>
@@ -252,13 +256,13 @@ Include:
           <li>
             It affected all users who requested password resets in the last week
           </li>
-          <li>You've added additional security measures</li>
+          <li>You&apos;ve added additional security measures</li>
         </ul>
         <Typography variant="body1" paragraph>
           <strong>Scenario 2:</strong>
         </Typography>
         <ul>
-          <li>You're adding a new payment integration</li>
+          <li>You&apos;re adding a new payment integration</li>
           <li>It supports multiple currencies</li>
           <li>Includes new environment variables</li>
           <li>Requires database schema updates</li>
@@ -290,7 +294,7 @@ Compare your answers with the examples in the next section.
     content: (
       <>
         <Typography variant="body1" paragraph>
-          Let's look at how we could write commit messages for our practice
+          Let&apos;s look at how we could write commit messages for our practice
           scenarios:
         </Typography>
         <Typography variant="body1" paragraph>
@@ -403,8 +407,8 @@ Set up commitlint in your project:
     content: (
       <>
         <Typography variant="body1" paragraph>
-          Let's review what we've learned and create a final checklist for
-          writing great commit messages:
+          Let&apos;s review what we&apos;ve learned and create a final checklist
+          for writing great commit messages:
         </Typography>
         <Typography variant="body1" paragraph>
           <strong>Essential Elements:</strong>
