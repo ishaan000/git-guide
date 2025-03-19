@@ -1,38 +1,89 @@
 "use client";
 
-import { useState, ReactNode } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { useState } from "react";
+import { Box, IconButton, Typography, Collapse } from "@mui/material";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
 
 interface ExpandableSectionProps {
   title: string;
-  content: ReactNode;
+  content: React.ReactNode;
+  variant: "concepts" | "tips";
+  defaultExpanded?: boolean;
 }
 
-export default function ExpandableSection({ title, content }: ExpandableSectionProps) {
-  const [expanded, setExpanded] = useState(false);
+export default function ExpandableSection({
+  title,
+  content,
+  variant = "concepts",
+  defaultExpanded = false,
+}: ExpandableSectionProps) {
+  const [expanded, setExpanded] = useState(defaultExpanded);
+
+  const getIcon = () => {
+    switch (variant) {
+      case "concepts":
+        return <MenuBookIcon fontSize="small" />;
+      case "tips":
+        return <LightbulbIcon fontSize="small" />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <Box sx={{ my: 2 }}>
-      <Button
-        fullWidth
-        sx={{
-          color: "limegreen",
-          fontFamily: "monospace",
-          textAlign: "left",
-          justifyContent: "flex-start",
-          "&:hover": { backgroundColor: "rgba(0, 255, 0, 0.1)" },
-        }}
+    <Box sx={{ mb: 2 }}>
+      <Box
         onClick={() => setExpanded(!expanded)}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          cursor: "pointer",
+          p: 1,
+          borderRadius: 1,
+          transition: "all 0.2s ease",
+          "&:hover": {
+            backgroundColor: "rgba(0, 255, 0, 0.05)",
+          },
+        }}
       >
-        {expanded ? `> ${title}` : `> ${title}`}
-      </Button>
-      {expanded && (
-        <Box sx={{ p: 2, borderLeft: "2px solid limegreen", mt: 1 }}>
-          <Typography variant="body1" sx={{ opacity: 0.9 }}>
-            {content}
-          </Typography>
+        <IconButton
+          size="small"
+          sx={{
+            color: "limegreen",
+            transform: expanded ? "rotate(90deg)" : "none",
+            transition: "transform 0.2s ease",
+          }}
+        >
+          <KeyboardArrowRightIcon />
+        </IconButton>
+        <Typography
+          variant="body1"
+          sx={{
+            ml: 1,
+            fontFamily: "monospace",
+            color: "limegreen",
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+          }}
+        >
+          {getIcon()} {title}
+        </Typography>
+      </Box>
+      <Collapse in={expanded}>
+        <Box
+          sx={{
+            ml: 4,
+            pl: 2,
+            borderLeft: "2px solid limegreen",
+            mt: 1,
+          }}
+        >
+          {content}
         </Box>
-      )}
+      </Collapse>
     </Box>
   );
 }
