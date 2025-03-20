@@ -56,11 +56,6 @@ export default function SectionContent({
 
   // Split additionalContent into sections
   const sections = section.additionalContent?.split(/\n(?=🎯|💡|📚)/) || [];
-  const learningGoals =
-    sections
-      .find((s) => s.startsWith("🎯"))
-      ?.replace("🎯 Learning Goals:", "")
-      .trim() || "";
   const interactiveExercise =
     sections
       .find((s) => s.startsWith("💡"))
@@ -141,23 +136,6 @@ export default function SectionContent({
 
       {section.additionalContent && (
         <Box sx={{ mb: 3 }}>
-          <ExpandableSection
-            title="Learning Goals"
-            variant="goals"
-            content={
-              <Typography
-                variant="body2"
-                component="pre"
-                sx={{
-                  whiteSpace: "pre-wrap",
-                  fontFamily: "monospace",
-                  mb: 0,
-                }}
-              >
-                {learningGoals}
-              </Typography>
-            }
-          />
           <ExpandableSection
             title="Interactive Exercise"
             variant="exercise"
