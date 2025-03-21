@@ -50,10 +50,12 @@ export default function Basics() {
       <Paper
         elevation={3}
         sx={{
-          p: 3,
+          p: { xs: 2, sm: 3 },
           backgroundColor: "black",
           border: "1px solid limegreen",
           borderRadius: 2,
+          maxWidth: "100%",
+          overflowX: "hidden",
         }}
       >
         {!isCompleted ? (

@@ -173,15 +173,22 @@ export default function SectionContent({
         </Box>
       )}
 
-      <Stack direction="row" spacing={2} justifyContent="space-between">
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={2}
+        justifyContent="space-between"
+        sx={{ mt: 3 }}
+      >
         <Button
           variant="outlined"
           onClick={onBack}
           disabled={isFirst}
           startIcon={<NavigateBeforeIcon />}
+          fullWidth={false}
           sx={{
             color: "limegreen",
             borderColor: "limegreen",
+            minWidth: { xs: "100%", sm: "auto" },
             "&:hover": {
               borderColor: "limegreen",
               backgroundColor: "rgba(0, 255, 0, 0.1)",
@@ -198,9 +205,11 @@ export default function SectionContent({
           variant="outlined"
           onClick={handleComplete}
           endIcon={<NavigateNextIcon />}
+          fullWidth={false}
           sx={{
             color: "limegreen",
             borderColor: "limegreen",
+            minWidth: { xs: "100%", sm: "auto" },
             "&:hover": {
               borderColor: "limegreen",
               backgroundColor: "rgba(0, 255, 0, 0.1)",
